@@ -21,5 +21,23 @@ public static class MathUtil
    {
       return new Rect( b.center.xy(), b.size.xy() );
    }
+
+   public static Vector2 GetPointOnCircle( float radians )
+   {
+      return new Vector2( -Mathf.Sin(radians), Mathf.Cos(radians) );
+   }
+
+   public static Vector2 RandomPointOnCircle()
+   {
+      float theta = Random.value * Mathf.PI * 2.0f;
+      return GetPointOnCircle(theta);
+   }
+
+   
+   public static float GetAngle( Vector2 dir )
+   {
+      return Mathf.Atan2( -dir.x, dir.y );
+   }
+
 }
 
