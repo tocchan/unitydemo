@@ -27,8 +27,6 @@ public class SpawnOnDestroy : MonoBehaviour
 
    void OnDestroy()
    {
-      Debug.Log( Application.isPlaying );
-
       if ((pool == null) || (pool.Length == 0)) {
          return;
       }
