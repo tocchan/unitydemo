@@ -6,10 +6,16 @@ using System.Collections.Generic;
 //-----------------------------------------------------------------------------
 public class CreateObjectOnFire : MonoBehaviour
 {
+   // Fire trigger to watch
    public FireTrigger Trigger;
+
+   // Which object to instantiate when firing
    public GameObject Projectile;
+
+   // How fast is the initial bullet.
    public float speed = 20.0f;
 
+   // Quickest we can re-fire the gun.
    public float ReloadTime = .1f;
    
    

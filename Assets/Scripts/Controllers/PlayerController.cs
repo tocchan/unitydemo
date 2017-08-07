@@ -54,7 +54,6 @@ public class PlayerController : MonoBehaviour
       }
       
       Vector2 pos = Camera.main.GetMouseScreenPosition2D();
-
       transform.LookAt2D( pos );
 
       if (Input.GetButton("Jump")) {
