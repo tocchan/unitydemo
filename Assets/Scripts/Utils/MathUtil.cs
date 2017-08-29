@@ -3,9 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 
 
-public static class MathUtil 
+public static class MathUtil
 {
-   public static float RangeMap( float value, float oldMin, float oldMax, float newMin, float newMax )
+   public static float RangeMap(float value, float oldMin, float oldMax, float newMin, float newMax)
    {
       float oldRange = oldMax - oldMin;
       float newRange = newMax - newMin;
@@ -17,14 +17,14 @@ public static class MathUtil
       return newVal;
    }
 
-   public static Rect BoundsToRect( Bounds b )
+   public static Rect BoundsToRect(Bounds b)
    {
-      return new Rect( b.center.xy(), b.size.xy() );
+      return new Rect(b.center.xy(), b.size.xy());
    }
 
-   public static Vector2 GetPointOnCircle( float radians )
+   public static Vector2 GetPointOnCircle(float radians)
    {
-      return new Vector2( -Mathf.Sin(radians), Mathf.Cos(radians) );
+      return new Vector2(-Mathf.Sin(radians), Mathf.Cos(radians));
    }
 
    public static Vector2 RandomPointOnCircle()
@@ -33,11 +33,15 @@ public static class MathUtil
       return GetPointOnCircle(theta);
    }
 
-   
-   public static float GetAngle( Vector2 dir )
+
+   public static float GetAngle(Vector2 dir)
    {
-      return Mathf.Atan2( dir.y, dir.x );
+      return Mathf.Atan2(dir.y, dir.x);
    }
 
+   public static bool CoinFlip()
+   {
+      return Random.Range( 0, 2 ) == 0; 
+   }
 }
 

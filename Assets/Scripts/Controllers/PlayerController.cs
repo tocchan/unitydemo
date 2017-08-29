@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
 
 
    Rigidbody2D rb;
+   GameController m_game;
 
    //-----------------------------------------------------------------------------
    void Start()
@@ -25,6 +26,11 @@ public class PlayerController : MonoBehaviour
       
       if (null == fireTrigger) {
          fireTrigger = GetComponent<FireTrigger>();
+      }
+
+      m_game = GameController.GetInstance();
+      if (m_game != null) {
+         m_game.PlayerCount++;
       }
    }
 	
@@ -52,6 +58,13 @@ public class PlayerController : MonoBehaviour
 
       if (Input.GetButton("Jump")) {
          rb.AddForce( f * propulsion );
+      }
+   }
+
+   void OnDestroy()
+   {
+      if (m_game != null) {
+         m_game.PlayerCount--;
       }
    }
 }
