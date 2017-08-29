@@ -5,11 +5,10 @@ using System.Collections.Generic;
 
 //-----------------------------------------------------------------------------
 //-----------------------------------------------------------------------------
-[RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(Rigidbody2D), typeof(FireTrigger))]
 public class PlayerController : MonoBehaviour
 {
    public float propulsion = 5.0f;
-   public ChangeEmissionByVelocity emitterController;
 
    // Events
    public FireTrigger fireTrigger;
@@ -24,11 +23,6 @@ public class PlayerController : MonoBehaviour
       // you don't actually need to do.
       rb = GetComponent<Rigidbody2D>();
       
-      if (emitterController == null) {
-         emitterController = GetComponentInChildren<ChangeEmissionByVelocity>();
-      }
-
-
       if (null == fireTrigger) {
          fireTrigger = GetComponent<FireTrigger>();
       }
@@ -58,13 +52,6 @@ public class PlayerController : MonoBehaviour
 
       if (Input.GetButton("Jump")) {
          rb.AddForce( f * propulsion );
-         if (emitterController != null) {
-            emitterController.IsAccelerating = true;
-         }
-      } else {
-         if (emitterController != null) {
-            emitterController.IsAccelerating = false;
-         }
       }
    }
 }

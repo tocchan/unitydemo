@@ -13,11 +13,6 @@ public static class MathExtensions
 
    public static Vector2 forward2D( this Transform t )
    {
-      return t.up.xy();
-   }
-
-   public static Vector3 right2D( this Transform t )
-   {
       return t.right.xy();
    }
 }

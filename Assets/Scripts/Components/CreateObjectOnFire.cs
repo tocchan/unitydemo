@@ -57,7 +57,7 @@ public class CreateObjectOnFire : MonoBehaviour
       direction = transform.forward2D();
 
       // Create the projectile
-      GameObject bullet = GameObject.Instantiate( Projectile, transform.position, transform.rotation ) as GameObject;
+      GameObject bullet = GameObject.Instantiate( Projectile, transform.position, Quaternion.identity ) as GameObject;
       if (bullet == null) {
          return;
       }
@@ -66,7 +66,7 @@ public class CreateObjectOnFire : MonoBehaviour
 
       Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
       if (null != rb) {
-         rb.velocity = (direction * speed) + ownerSpeed;
+         rb.velocity = (direction * speed); //  + ownerSpeed;
       }
 
       m_lastFireTime = Time.timeSinceLevelLoad;

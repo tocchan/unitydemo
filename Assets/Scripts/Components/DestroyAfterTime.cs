@@ -8,6 +8,7 @@ using System.Collections.Generic;
 public class DestroyAfterTime : MonoBehaviour
 {
    public float lifetime = 10.0f;
+   public GameObject effectToPlay;
 
    float killtime = 0.0f;
 
@@ -22,6 +23,9 @@ public class DestroyAfterTime : MonoBehaviour
    {
       if (Time.timeSinceLevelLoad >= killtime) {
          GameObject.Destroy(gameObject);
+         if (effectToPlay != null) {
+            GameObject.Instantiate( effectToPlay, transform.position, transform.rotation, null );
+         }
       }
    }
 }

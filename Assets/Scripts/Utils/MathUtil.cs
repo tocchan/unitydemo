@@ -36,7 +36,7 @@ public static class MathUtil
    
    public static float GetAngle( Vector2 dir )
    {
-      return Mathf.Atan2( -dir.x, dir.y );
+      return Mathf.Atan2( dir.y, dir.x );
    }
 
 }
